@@ -12,13 +12,13 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href={% block css href %}{% endblock %} />
+    <link rel="stylesheet" href={% block css %}{% endblock %} />
   </head>
 
   <body>
-    <header>{% block header content %}{% endblock %}</header>
-    <main>{% block main content %}{% endblock %}</main>
-    <footer>{% block footer content %}{% endblock %}</footer>
+    <header>{% block header %}{% endblock %}</header>
+    <main>{% block main %}{% endblock %}</main>
+    <footer>{% block footer %}{% endblock %}</footer>
   </body>
 
   <script
@@ -27,5 +27,5 @@
     crossorigin="anonymous"
   ></script>
 
-  <script src={% block js src %}{% endblock %}></script>
+  <script src={% block js %}{% endblock %}></script>
 </html>
