@@ -7,7 +7,7 @@
     <h2>S'inscrire</h2>
     <form method="post">
     {% csrf_token %} 
-    {{ form }}
+    {{ form.as_p }}
     <button type="submit">S'inscrire</button>
     </form>
 
