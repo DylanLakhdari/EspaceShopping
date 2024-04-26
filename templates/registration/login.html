@@ -1,6 +1,14 @@
-<h2>Se connecter</h2>
-<form method="post">
-  {% csrf_token %} 
-  {{ form }}
-  <button type="submit">Se connecter</button>
-</form>
+{% extends "base.html" %}
+
+{% block title %}AutoLocation | Connexion{% endblock %}
+
+{% block main %}
+
+    <h2>Se connecter</h2>
+    <form method="post">
+    {% csrf_token %} 
+    {{ form }}
+    <button type="submit">Se connecter</button>
+    </form>
+
+{% endblock %}
