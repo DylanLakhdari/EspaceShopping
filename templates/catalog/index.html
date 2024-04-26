@@ -8,10 +8,15 @@
 
         Hi {{ user.username }} !
 
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Déconnexion</button>
+        </form>
+
         {% else %}
 
         <p>Vous n'êtes pas connecté</p>
-        <a href="{% url "login" %}">Se connecter</a>
+        <a href="{% url "login" %}">Connexion</a>
 
     {% endif %}
 
