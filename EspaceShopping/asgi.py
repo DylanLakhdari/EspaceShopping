@@ -1,5 +1,5 @@
 """
-ASGI config for AutoLocation project.
+ASGI config for EspaceShopping project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
