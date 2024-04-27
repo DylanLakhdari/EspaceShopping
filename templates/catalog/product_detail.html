@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}EspaceShopping | {{ products.name }} {% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block header %}
+
+    <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark shadow">
+        <div id="collapse" class="container-fluid">
+            <a class="navbar-brand" href="/"><i class="bi bi-train-front"></i> EspaceShopping</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item text-light">
+                        <div>
+                            <a class="text-decoration-none" href="/">Acceuil</a> >
+                            <a id="current" class="user-select-none text-decoration-none text-secondary">{{ products.name }}</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endblock %}
+
+{% block main %}
+
+    <section class="py-2">
+        <div class="container px-4 px-lg-1 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <img class="card-img-top mb-5 mb-md-0" src="{{ products.thumbnail.url }}" alt="..." />
+                </div>
+                <div class="col-md-6">
+                    <h1 class="display-5 fw-bolder">{{ products.name }}</h1>
+                    <p class="lead">{{ products.description }}</p>
+                    <div class="fs-5 mb-3">
+                        <span>💲Tarif : {{ products.price }}€</span> <span>| Stock : {{ products.stock }}</span>
+                    </div>
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-primary bi bi-dash me-1"></button>
+                        <input class="form-control text-center me-1" id="inputQuantity" type="num" value="1"
+                            style="max-width: 3rem" />
+                        <button type="button" class="btn btn-primary bi bi-plus-lg me-3"></button>
+                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <i class="bi bi-ticket-perforated-fill me-1"></i>
+                            Réserver
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+{% block js %}{% endblock %}
