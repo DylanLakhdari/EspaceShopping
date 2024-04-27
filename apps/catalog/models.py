@@ -14,6 +14,7 @@ class Category(models.Model):
     
 class Product(models.Model):
     name = models.CharField(max_length=64)
+    slug = models.SlugField(max_length=64)
     thumbnail = models.ImageField(upload_to="products", blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1) 
     price = models.FloatField(default=0.0, validators=[MinValueValidator(0)])
