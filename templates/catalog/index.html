@@ -45,7 +45,7 @@
                       <p>
                         Stock : {{ product.stock }}
                       </p>
-                      <a href="{{ Train_offer.slug }}" class="btn btn-primary"
+                      <a href="{% url 'catalog-product' product.slug %}" class="btn btn-primary"
                         >Voir l'offre</a
                       >
                     </div>
