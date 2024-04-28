@@ -45,8 +45,8 @@
                       <p>
                         Stock : {{ product.stock }}
                       </p>
-                      <a href="{% url 'catalog-product' product.slug %}" class="btn btn-primary"
-                        >Voir l'offre</a
+                      <a href="{{ product.get_absolute_url }}" class="btn btn-primary"
+                        >Voir le produit</a
                       >
                     </div>
                   </div>
