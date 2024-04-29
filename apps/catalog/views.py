@@ -26,5 +26,5 @@ def add_to_cart(request, slug):
         order.quantity += 1
         order.save()
     
-    return redirect(reverse("product"), kwargs=slug)
+    return redirect(reverse("catalog-product", kwargs={"slug": slug}))
     
