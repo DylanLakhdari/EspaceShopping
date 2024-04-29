@@ -38,3 +38,12 @@ class Order (models.Model):
 
     def __str__(self):
         return f"{self.product.name} ({self.quantity})"
+    
+class Cart(models.Model):
+    user = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    orders = models.ManyToManyField(Order)
+    ordered = models.BooleanField(default=False)
+    ordered_date = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return self.user.username
