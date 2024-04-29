@@ -47,10 +47,12 @@
                         <input class="form-control text-center me-1" id="inputQuantity" type="num" value="1"
                             style="max-width: 3rem" />
                         <button type="button" class="btn btn-primary bi bi-plus-lg me-3"></button>
+                        <a href="{% url "catalog-add-to-cart" products.slug %}">
                         <button class="btn btn-outline-dark flex-shrink-0" type="button">
                             <i class="bi bi-cart-fill me-1"></i>
                             Ajouter au panier
                         </button>
+                        </a>
                     </div>
                 </div>
             </div>
