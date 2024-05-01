@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#"> <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png"
+                alt="" width="30px" height="30px" class="inline-block align-text-top"> EspaceShopping
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="{% url "accounts-signup" %}"><button class="btn btn-secondary">S'inscrire</button></a>
+                    <a href="{% url "login" %}"><button class="btn btn-primary">Se connecter</button></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

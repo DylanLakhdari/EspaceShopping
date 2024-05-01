@@ -16,9 +16,7 @@
     </form>
 
     {% else %}
-        <p>Vous n'êtes pas connecté</p>
-        <a href="{% url "login" %}">Connexion</a>
-        <a href="{% url "accounts-signup" %}">Inscription</a>
+        {% include "not_logged_nav.html" %}
     {% endif %}
 
     {% if user.cart %}
