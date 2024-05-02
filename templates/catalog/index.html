@@ -22,10 +22,10 @@
             <div class="container">
               <div class="row">
                 {% for product in products %}
-                <div class="col-md-4">
-                  <div class="card mb-4">
+                <div class="col-md-3">
+                  <div class="card mb-4 shadow-sm">
                     <img
-                      class="card-img-top"
+                      class="card-img-top border-bottom p-2"
                       style="height: 225px; width: 100%; display: block"
                       src="{{ product.thumbnail.url }}"
                       data-holder-rendered="true"
@@ -33,14 +33,13 @@
                     <div class="card-body">
                       <h5 class="card-title">{{ product.name }}</h5>
                       <p class="mb-0">
-                        Prix : {{ product.price }}
+                        {{ product.price }}<i class="bi bi-currency-euro"></i>
                       </p>
-                      <p>
-                        Stock : {{ product.stock }}
-                      </p>
-                      <a href="{{ product.get_absolute_url }}" class="btn btn-primary"
+                      <div class="d-flex justify-content-center mt-1">
+                      <a href="{{ product.get_absolute_url }}" class="btn btn-success mt-1"
                         >Voir le produit</a
-                      >
+                      >          
+                      </div>        
                     </div>
                   </div>
                 </div>
