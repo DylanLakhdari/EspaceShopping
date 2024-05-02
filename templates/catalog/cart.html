@@ -7,24 +7,13 @@
 
 {% block header %}
 
-    <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark shadow">
-        <div id="collapse" class="container-fluid">
-            <a class="navbar-brand" href="/"><i class="bi bi-shop"></i> EspaceShopping</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item text-light">
-                        <div>
-                            <a class="text-decoration-none" href="/">Acceuil</a> >
-                            <a id="current" class="user-select-none text-decoration-none text-secondary">Panier</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {% if user.is_authenticated %}
+    {% comment %} <a href="{% url 'password_change' %}">Changer de mot de passe</a></p> {% endcomment %}
+    {% include "logged_nav.html" %}
+
+    {% else %}
+        {% include "not_logged_nav.html" %}
+    {% endif %}
 
 {% endblock %}
 
