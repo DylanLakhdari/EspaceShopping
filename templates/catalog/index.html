@@ -5,24 +5,11 @@
 {% block header %}
 
     {% if user.is_authenticated %}
-
-    Hi {{ user.username }} !
-
-    <a href="{% url 'password_change' %}">Changer de mot de passe</a></p>
-
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Déconnexion</button>
-    </form>
+    {% comment %} <a href="{% url 'password_change' %}">Changer de mot de passe</a></p> {% endcomment %}
+    {% include "logged_nav.html" %}
 
     {% else %}
         {% include "not_logged_nav.html" %}
-    {% endif %}
-
-    {% if user.cart %}
-    
-    <a href="{% url 'catalog-cart' %}">Voir le panier ({{ user.cart.orders.count }})</a>
-    
     {% endif %}
 
 {% endblock %}

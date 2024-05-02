@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#"> <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png"
+                alt="" width="30px" height="30px" class="inline-block align-text-top"> EspaceShopping
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ms-auto">
+                {% if user.cart %}
+                <li class="nav-item mr-3" style="width: 42px;">
+                    <a href="{% url 'catalog-cart' %}" class="nav-link nav-icon notif-link">
+                        <i class="bi bi-cart" style="font-size: 24px;"></i>
+                        <span class="badge text-bg-danger">{{ user.cart.orders.count }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img class="rounded-circle"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png"
+                            width="32" height="32"> {{ user.username }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                            <i class="bi bi-person-square inline-block align-text-top me-1"></i>Profil</a>
+                        </li>
+                        <li>
+                            <form lass="dropdown-item" action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-tertiary text-danger" type="submit">     
+                                    <i class="bi bi-power inline-block align-text-top me-1"></i>Déconnexion
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
