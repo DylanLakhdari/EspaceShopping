@@ -51,3 +51,14 @@ class Cart(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+    @property
+    def total_cart_price(self):
+        total_cart_price = 0.0
+
+        for order in self.orders.all():
+            total_cart_price += order.total_order_price
+
+        tva = 0.2
+
+        return round(total_cart_price + (total_cart_price * tva), 2)
