@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.db import models
 
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -39,6 +40,10 @@ class Order (models.Model):
 
     def __str__(self):
         return f"{self.product.name} ({self.quantity})"
+    
+    @property
+    def total_order_price(self):
+        return round(self.product.price * self.quantity, 2)
     
 class Cart(models.Model):
     user = models.OneToOneField(AUTH_USER_MODEL, on_delete=models.CASCADE)
