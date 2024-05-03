@@ -31,7 +31,11 @@ def add_to_cart(request, slug):
 def cart(request):
     cart = get_object_or_404(Cart, user=request.user)
 
-    return render(request, "catalog/cart.html", context={"orders": cart.orders.all()})
+    cart = Cart.objects.get(user=request.user)
+
+    return render(request, "catalog/cart.html", context={"orders": cart.orders.all(),
+                                                         'cart': cart,
+                                                        })
 
 def delete_cart(request):
     cart = request.user.cart
