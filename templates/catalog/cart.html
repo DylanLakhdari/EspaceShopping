@@ -47,7 +47,7 @@
                                 <div class="d-flex" style="width: 80px;">
                                     <h5 class="mb-0">{{ order.total_order_price }}</h5><i class="bi bi-currency-euro"></i>
                                 </div>
-                                <a href="#!"><i class="bi bi-trash-fill text-dark"></i></a>
+                                <a href="{% url 'catalog-delete-cart-order' order.id %}"><i class="bi bi-trash-fill text-dark"></i></a>
                             </div>
                         </div>
                     </div>
