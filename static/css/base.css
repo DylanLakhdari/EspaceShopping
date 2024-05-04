@@ -9,3 +9,7 @@
   right: 0px;
   display: block;
 }
+
+.form-text{
+  max-width: 430px;
+}
