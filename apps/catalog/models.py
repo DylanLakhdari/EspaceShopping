@@ -62,3 +62,12 @@ class Cart(models.Model):
         tva = 0.2
 
         return round(total_cart_price + (total_cart_price * tva), 2)
+    
+    @property
+    def total_cart_count(self):
+        total_cart_count = 0
+
+        for order in self.orders.all():
+            total_cart_count += order.quantity
+
+        return total_cart_count
