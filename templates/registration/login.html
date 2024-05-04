@@ -2,8 +2,14 @@
 
 {% block title %}EspaceShopping | Connexion{% endblock %}
 
+{% block header %}
+
+    {% include "default_nav.html" %}
+
+{% endblock header %}
+
 {% block main %}
-    <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="mt-5 d-flex flex-column justify-content-center align-items-center">
         <form method="post" class="p-5 border border-success rounded shadow-lg">
             {% csrf_token %}
             <h1 class="h3 mb-3 fw-normal">Se connecter</h1>
@@ -18,10 +24,10 @@
                     id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Mot de passe</label>
             </div>
+            <button class="btn btn-success w-100 py-2 mt-2" type="submit">Se connecter</button>
             <div class="form-floating d-flex justify-content-center mb-1">
                 <a href="{% url 'password_reset' %}">Mot de passe oublié ?</a>
             </div>
-            <button class="btn btn-success w-100 py-2" type="submit">Se connecter</button>
         </form>
         <div class="form-text text-center text-danger mt-3 fw-semibold">
             {% for error in form.non_field_errors %}
