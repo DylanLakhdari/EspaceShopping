@@ -14,7 +14,7 @@
                 <li class="nav-item mr-3" style="width: 42px;">
                     <a href="{% url 'catalog-cart' %}" class="nav-link nav-icon notif-link pb-0">
                         <i class="bi bi-cart" style="font-size: 24px;"></i>
-                        <span class="badge text-bg-danger">{{ user.cart.orders.count }}</span>
+                        <span class="badge text-bg-danger">{{ user.cart.total_cart_count }}</span>
                     </a>
                 </li>
                 {% else %}
