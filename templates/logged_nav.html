@@ -33,13 +33,16 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="#">
-                            <i class="bi bi-person-square inline-block align-text-top me-1"></i>Profil</a>
+                            <div class="dropdown-item">
+                                <button class="btn" href="{% url 'accounts-settings' %}">     
+                                    <i class="bi bi-gear inline-block align-text-top me-1"></i>Paramètres
+                                </button>
+                            </div>
                         </li>
                         <li>
-                            <form lass="dropdown-item" action="{% url 'logout' %}" method="post">
+                            <form class="dropdown-item" action="{% url 'logout' %}" method="post">
                                 {% csrf_token %}
-                                <button class="btn btn-tertiary text-danger" type="submit">     
+                                <button class="btn text-danger" type="submit">     
                                     <i class="bi bi-power inline-block align-text-top me-1"></i>Déconnexion
                                 </button>
                             </form>
