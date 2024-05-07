@@ -15,4 +15,4 @@ def user_settings(request, username):
     user = get_object_or_404(CustomUser, username=username)
     if request.user != user:
         return HttpResponseForbidden()
-    return render(request, "user_settings.html")
+    return render(request, "catalog/user_settings.html")
