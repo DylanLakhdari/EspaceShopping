@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}EspaceShopping | Accueil{% endblock %}
+
+{% block main %}
+
+    {% include "logged_nav.html" %}
+
+    <h1>Bonjour {{ user.username }}</h1>
+
+{% endblock %}
