@@ -30,14 +30,15 @@
                         </div>
                     </div>
                         <form method="post">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="mb-3 col-md-6">
-                                    <label for="first_name" class="form-label">Prénom</label>
-                                    <input class="form-control" type="text" id="id_first_name" value="Dylan">
+                                    <label for="id_first_name" class="form-label">Prénom</label>
+                                    <input class="form-control" type="text" id="id_first_name" name="first_name" value="{{ user.first_name }}">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="last_name" class="form-label">Nom</label>
-                                    <input class="form-control" type="text" id="id_last_name" value="Lakhdari">
+                                    <label for="id_last_name" class="form-label">Nom</label>
+                                    <input class="form-control" type="text" id="id_last_name" name="last_name" value="{{ user.last_name }}">
                                 </div>
                             </div>
                             <div class="mt-2">
