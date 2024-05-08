@@ -1,5 +1,5 @@
 from django.http import HttpResponseForbidden
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from accounts.models import CustomUser
 from .forms import CustomUserCreationForm
 from django.urls import reverse_lazy
@@ -16,3 +16,11 @@ def user_settings(request, username):
     if request.user != user:
         return HttpResponseForbidden()
     return render(request, "catalog/user_settings.html")
+
+@login_required
+def user_delete(request):
+    user = get_object_or_404(CustomUser, username=request.user.username)
+    
+    user.delete()
+
+    return redirect('catalog-index')
