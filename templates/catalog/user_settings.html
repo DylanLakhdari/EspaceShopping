@@ -54,12 +54,13 @@
                             Attention, cette action est irréversible </br> Vous ne pourrez plus récupérer votre compte une
                             fois supprimé.
                         </div>
-                        <form>
+                        <form method="post" action="{% url 'accounts-user-delete' %}">
                             <div class="form-check mb-3">
+                                {% csrf_token %}
                                 <input class="form-check-input" type="checkbox" name="account_delete" id="account_delete" required>
                                 <label class="form-check-label" for="account_delete">Je confirme la supression du compte</label>
                             </div>
-                            <button type="submit" class="btn btn-danger deactivate-account">Supprimer le compte</button>
+                            <button type="submit" class="btn btn-danger">Supprimer le compte</button>
                         </form>
                     </div>
                 </div>
