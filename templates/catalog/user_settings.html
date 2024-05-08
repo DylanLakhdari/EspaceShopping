@@ -1,83 +1,103 @@
 {% extends "base.html" %}
 
-{% block title %}EspaceShopping | Accueil{% endblock %}
+{% block title %}EspaceShopping | {{ user.username }}{% endblock %}
 
 {% block main %}
 
-    {% include "logged_nav.html" %}
+{% include "logged_nav.html" %}
 
-    <div class="container mt-5">
-        <div class="col-md-12">
-            <div class="card mb-4 border-success">
-                <h5 class="card-header">Profil de {{ user.username }}</h5>
-                <div class="card-body">
-                    <div class="d-flex align-items-center justify-content-center justify-content-sm-start gap-4">
-                        <img src="https://i.pinimg.com/474x/3e/79/ed/3e79edd8850e4f1d73052f548f2f399d.jpg" alt="user-avatar"
-                            class="d-block rounded" height="100" width="100">
-                        <button class="btn btn-success">Changer de photo</button>
-                    </div>
-                </div>
-                <hr class="my-0">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="mb-3 col-md-6">
-                            <label for="username" class="form-label">Pseudo</label>
-                            <input class="form-control" type="text" id="{{ user.username }}" value="Emmelf" readonly>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="email" class="form-label">Email</label>
-                            <input class="form-control" type="email" id="email" value="{{ user.email }}" readonly>
-                        </div>
-                    </div>
-                        <form method="post">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="mb-3 col-md-6">
-                                    <label for="id_first_name" class="form-label">Prénom</label>
-                                    <input class="form-control" type="text" id="id_first_name" name="first_name" value="{{ user.first_name }}">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="id_last_name" class="form-label">Nom</label>
-                                    <input class="form-control" type="text" id="id_last_name" name="last_name" value="{{ user.last_name }}">
-                                </div>
-                            </div>
-                            <div class="mt-2">
-                                <button type="submit" class="btn btn-success">Sauvegarder</button>
-                                <button type="reset" class="btn btn-secondary">Annuler</button>
-                                {% for message in messages %}
-                                <div class="form-text text-success mt-3 fw-semibold">
-                                    {{ message }}
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </form>
-                        {% if form.errors %}
-                        <div class="form-text text-danger mt-3 fw-semibold">
-                            {% for field in form %}
-                                {{ field.errors.as_text }} <br>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="card border-success">
-                    <h5 class="card-header text-danger">Supprimer le compte</h5>
-                    <div class="card-body">
-                        <div class="mb-3 col-12 mb-0 alert alert-warning">
-                            Attention, cette action est irréversible </br> Vous ne pourrez plus récupérer votre compte une
-                            fois supprimé.
-                        </div>
-                        <form method="post" action="{% url 'accounts-user-delete' %}">
-                            <div class="form-check mb-3">
-                                {% csrf_token %}
-                                <input class="form-check-input" type="checkbox" name="account_delete" id="account_delete" required>
-                                <label class="form-check-label" for="account_delete">Je confirme la supression du compte</label>
-                            </div>
-                            <button type="submit" class="btn btn-danger">Supprimer le compte</button>
-                        </form>
-                    </div>
+<div class="container mt-5">
+    <div class="col-md-12">
+        <div class="card mb-4 border-success">
+            <h5 class="card-header">Profil de {{ user.username }}</h5>
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-center justify-content-sm-start gap-4">
+                    <img src="https://i.pinimg.com/474x/3e/79/ed/3e79edd8850e4f1d73052f548f2f399d.jpg" alt="user-avatar"
+                        class="d-block rounded" height="100" width="100">
+                    <button class="btn btn-success"><i class="bi bi-card-image"></i> Changer de photo</button>
                 </div>
             </div>
+            <hr class="my-0">
+            <div class="card-body">
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="username" class="form-label">Pseudo</label>
+                        <input class="form-control" type="text" id="{{ user.username }}" value="Emmelf" readonly>
+                        <div class="form-text">Le pseudo ne peut pas être modifié.</div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input class="form-control" type="email" id="email" value="{{ user.email }}" readonly>
+                        <div class="form-text">L'email ne peut pas être modifié.</div>
+                    </div>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="id_first_name" class="form-label">Prénom</label>
+                            <input class="form-control" type="text" id="id_first_name" name="first_name"
+                                value="{{ user.first_name }}">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="id_last_name" class="form-label">Nom</label>
+                            <input class="form-control" type="text" id="id_last_name" name="last_name"
+                                value="{{ user.last_name }}">
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-success"><i class="bi bi-floppy"></i> Sauvegarder</button>
+                        <button type="reset" class="btn btn-secondary"><i class="bi bi-x-lg"></i> Annuler</button>
+                        {% for message in messages %}
+                        <div class="form-text text-success mt-3 fw-semibold">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </form>
+                {% if form.errors %}
+                <div class="form-text text-danger mt-3 fw-semibold">
+                    {% for field in form %}
+                    {{ field.errors.as_text }} <br>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
         </div>
+    </div>
+    <div class="card border-success mb-4">
+        <h5 class="card-header">Mot de passe</h5>
+        <div class="card-body">
+            <div class="alert alert-success">
+                Vous pouvez modifier votre mot de passe à tout moment.
+            </div>        
+            <a href="{% url 'password_change' %}" class="btn btn-success"><i class="bi bi-key"></i> Modifier le mot de passe</a>      
+        </div>
+    </div>
+    <div class="card border-success mb-4">
+        <h5 class="card-header text-danger">Suppression du compte</h5>
+        <div class="card-body">
+            <div class="mb-3 alert alert-warning">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                Attention, cette action est irréversible.</br> Vous ne pourrez plus récupérer votre compte une
+                fois supprimé.
+            </div>
+            <form method="post" action="{% url 'accounts-user-delete' %}">
+                <div class="form-check mb-3">
+                    {% csrf_token %}
+                    <input class="form-check-input" type="checkbox" name="account_delete" id="account_delete" required>
+                    <label class="form-check-label" for="account_delete">Je confirme la supression du compte</label>
+                </div>
+                <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"></i> Supprimer le compte</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+    {% include "footer.html" %}
 
 {% endblock %}
