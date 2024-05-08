@@ -5,6 +5,7 @@ from .forms import CustomUserCreationForm, CustomUserChangeForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 class signup(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy("login")
@@ -21,6 +22,7 @@ def user_settings(request, username):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            messages.success(request, 'Vos informations ont été mises à jour avec succès !')
             return redirect('accounts-user-settings', username)
         
     return render(request, "catalog/user_settings.html",  {'form': form})
