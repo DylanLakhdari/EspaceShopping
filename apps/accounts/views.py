@@ -14,7 +14,7 @@ class signup(CreateView):
 @login_required
 def user_settings(request, username):
     user = get_object_or_404(CustomUser, username=username)
-    form = CustomUserChangeForm(request.POST, instance=user)
+    form = CustomUserChangeForm(request.POST,request.FILES, instance=user)
 
     if request.user != user:
         return HttpResponseForbidden()

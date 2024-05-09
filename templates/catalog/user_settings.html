@@ -11,10 +11,15 @@
         <div class="card mb-4 border-success">
             <h5 class="card-header">Profil de {{ user.username }}</h5>
             <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                 <div class="d-flex align-items-center justify-content-center justify-content-sm-start gap-4">
                     <img src="{{ user.profile_picture.url }}" alt="user-avatar"
                         class="d-block rounded" height="100" width="100">
-                    <button class="btn btn-success"><i class="bi bi-card-image"></i> Changer de photo</button>
+                        <div class="mb-3 col-md-6">
+                        <label for="id_profile_picture" class="form-label">Changer de photo de profil</label>
+                        <input class="form-control" type="file" name="profile_picture" accept="image/*" id="id_profile_picture">
+                        </div>
                 </div>
             </div>
             <hr class="my-0">
@@ -31,8 +36,6 @@
                         <div class="form-text">L'email ne peut pas être modifié.</div>
                     </div>
                 </div>
-                <form method="post">
-                    {% csrf_token %}
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="id_first_name" class="form-label">Prénom</label>
