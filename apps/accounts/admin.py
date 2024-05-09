@@ -7,7 +7,10 @@ from .models import CustomUser
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
-    model = CustomUser
-    list_display = ["email", "username",]
+    list_display = ["email", "username","first_name","last_name"]
+
+    fieldsets = UserAdmin.fieldsets + (
+            ("Champs additionnels", {'fields': ('profile_picture',)}),
+    )
 
 admin.site.register(CustomUser, CustomUserAdmin)
