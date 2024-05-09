@@ -12,7 +12,7 @@
             <h5 class="card-header">Profil de {{ user.username }}</h5>
             <div class="card-body">
                 <div class="d-flex align-items-center justify-content-center justify-content-sm-start gap-4">
-                    <img src="https://i.pinimg.com/474x/3e/79/ed/3e79edd8850e4f1d73052f548f2f399d.jpg" alt="user-avatar"
+                    <img src="{{ user.profile_picture.url }}" alt="user-avatar"
                         class="d-block rounded" height="100" width="100">
                     <button class="btn btn-success"><i class="bi bi-card-image"></i> Changer de photo</button>
                 </div>

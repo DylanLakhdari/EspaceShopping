@@ -19,7 +19,7 @@ class CustomUser(AbstractUser):
         blank=True
     )
 
-    profile_picture = models.ImageField(null=True, blank=True)
+    profile_picture = models.ImageField(default="users/profile_picture_default.jpg",null=True, blank=True)
 
     def __str__(self):
         return self.username
