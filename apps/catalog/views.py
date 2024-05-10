@@ -31,9 +31,7 @@ def add_to_cart(request, slug):
 def cart(request):
     cart = get_object_or_404(Cart, user=request.user)
     
-    return render(request, "catalog/cart.html", context={"orders": cart.orders.all(),
-                                                         'cart': cart,
-                                                        })
+    return render(request, "catalog/cart.html", context={"orders": cart.orders.all(),'cart': cart,})
 
 def delete_cart(request):
     cart = request.user.cart
@@ -48,6 +46,17 @@ def delete_order(request, order_id):
 
     if order.user == request.user:
         order.delete()
+    else:
+        pass
+
+    return redirect('catalog-cart')
+
+def decrease_order(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+
+    if order.user == request.user and order.quantity > 1:
+        order.quantity -= 1
+        order.save()
     else:
         pass
 
