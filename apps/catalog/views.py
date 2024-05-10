@@ -61,3 +61,14 @@ def decrease_order(request, order_id):
         pass
 
     return redirect('catalog-cart')
+
+def increase_order(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+
+    if order.user == request.user and order.quantity < 10:
+        order.quantity += 1
+        order.save()
+    else:
+        pass
+
+    return redirect('catalog-cart')

@@ -43,7 +43,7 @@
                             <div class="d-flex flex-row align-items-center">
                                     <a href="{% url 'catalog-decrease-cart-order' order.id%}">- </a>
                                     <h5 class="fw-normal mb-0 fs-6">{{ order.quantity }}</h5>
-                                    <a> +</a>
+                                    <a href="{% url 'catalog-increase-cart-order' order.id%}"> +</a>
                                 <div class="d-flex justify-content-end" style="width: 120px;">
                                     <h5 class="mb-0 me-3 fs-6">{{ order.total_order_price }} €</h5>
                                 </div>
