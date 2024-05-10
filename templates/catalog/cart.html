@@ -47,16 +47,8 @@
                                 <div class="d-flex justify-content-end" style="width: 120px;">
                                     <h5 class="mb-0 me-3 fs-6">{{ order.total_order_price }} €</h5>
                                 </div>
-                                {% if user.cart.orders.count == 1 %}
-
-                                    <a href="{% url 'catalog-delete-cart'%}"><i class="bi bi-trash-fill text-dark"></i></a>
-
-                                    {% else %}
-
                                     <a href="{% url 'catalog-delete-cart-order' order.id %}"><i class="bi bi-trash-fill text-dark"></i></a>
-                                
-                                {% endif %}
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>

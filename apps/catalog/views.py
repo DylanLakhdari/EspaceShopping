@@ -43,9 +43,17 @@ def delete_cart(request):
 
 def delete_order(request, order_id):
     order = get_object_or_404(Order, id=order_id)
+    cart = request.user.cart
 
     if order.user == request.user:
-        order.delete()
+        if cart.orders.count() == 1:
+            cart.orders.all().delete()
+            cart.delete()
+
+            return redirect('catalog-index')
+        
+        else:
+            order.delete()
     else:
         pass
 
