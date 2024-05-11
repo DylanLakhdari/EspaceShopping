@@ -71,3 +71,17 @@ class Cart(models.Model):
             total_cart_count += order.quantity
 
         return total_cart_count
+    
+class Purchase_status(models.Model): 
+    name = models.CharField(max_length=64) 
+
+    @staticmethod
+    def get_all_purchase_status(): 
+        return Purchase_status.objects.all() 
+  
+    def __str__(self): 
+        return self.name 
+class Purchase(models.Model):
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    cart = models.ManyToManyField(Cart)
+    purchase_status = models.ForeignKey(Purchase_status, on_delete=models.CASCADE, default=1) 
