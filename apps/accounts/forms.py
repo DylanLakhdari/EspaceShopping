@@ -13,6 +13,3 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = ('first_name', 'last_name', "profile_picture")
-
-class PurchaseForm:
-    fields = ('adress','first_name', 'last_name')
