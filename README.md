@@ -1,13 +1,12 @@
 # EspaceShopping
 
-![Image title](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzNwc3IxM253dmJsanVscmdtczRjZDBiNG14Y2NjMDd3ODJhcm5sOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4l7l6q3rHB3AcekuNU/giphy.gif)
+![EspaceShopping Example](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaG9pcjhvMWQ1cWdlNGN4MHFoemkzbGkzZjFubmEyaGo5ZTcyaWZjaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Rf1SOQJZuIBJOB5f8A/giphy.gif)
 
 ## Features
 
 - Création de comptes et gestion des utilisateurs
 - Gestion du panier utilisateur
 - Ajout de produits dans la base de données et affichage dynamique
-
 
 ## Installation
 
@@ -22,7 +21,3 @@ python manage.py migrate
 
 python manage.py runserver
 ```
-
-
-
-
