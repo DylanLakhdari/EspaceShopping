@@ -1,6 +1,6 @@
 # EspaceShopping
 
-![EspaceShopping Example](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaG9pcjhvMWQ1cWdlNGN4MHFoemkzbGkzZjFubmEyaGo5ZTcyaWZjaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Rf1SOQJZuIBJOB5f8A/giphy.gif)
+![EspaceShopping Example](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExY25wcm14aXM3bDhieWJhbXM5YXhiZ3h6OHoxZ215OTdyZDg5OXR4MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9Aefo1G36rPdcvo1RX/giphy.gif)
 
 ## Features
 
